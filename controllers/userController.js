@@ -1,4 +1,5 @@
 import Booking from "../models/BookingSchema.js";
+import Contactus from "../models/ContactSchema.js";
 import Doctor from "../models/DoctorSchema.js";
 import User from "../models/UserSchema.js";
 
@@ -127,3 +128,27 @@ export const getMyAppointments = async (req, res) => {
     });
   }
 };
+
+
+export const contactController = async (req,res)=>{
+  const {email,subject,message} = req.body;
+  console.log("hello")
+
+  try{
+      let con = new Contactus({
+      email,
+      subject,
+      message,
+    })
+    await con.save()
+    res
+      .status(200)
+      .json({ success: true, message: "Success"});
+  }
+  catch(err){
+    console.log(err)
+    res
+      .status(500)
+      .json({ success: false, message: "Internal server error! Try again" });
+  }
+}

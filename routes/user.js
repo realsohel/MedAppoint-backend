@@ -11,6 +11,7 @@ import {
   getSingleUser,
   updateUser,
   getMyAppointments,
+  contactController,
 } from "../controllers/userController.js";
 import express from "express";
 
@@ -30,4 +31,5 @@ router.get(
   getMyAppointments
 );
 
+router.post("/contactUs",contactController)
 export default router;

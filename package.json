@@ -15,6 +15,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "webpack:server":"webpack --config webpack.index.js",
     "start": "node index.js",
     "start-dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
